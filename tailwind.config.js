@@ -14,6 +14,9 @@ module.exports = {
         brown: '#5D4739',
         paper: '#E1DCD1',
       },
+      screens: {
+        phone: '280px',
+      },
     },
   },
   plugins: [],

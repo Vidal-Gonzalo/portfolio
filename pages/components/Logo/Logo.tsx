@@ -12,8 +12,6 @@ function Logo({}: Props) {
     },
     visible: {
       pathLength: 1,
-      stroke: '#000',
-      fill: '#000',
       transition: { duration: 3 },
     },
   }
@@ -22,8 +20,7 @@ function Logo({}: Props) {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       version="1.1"
-      width="120"
-      height="120"
+      className="h-20 w-20 md:h-24 md:w-24"
       viewBox="0 0 1000 623"
     >
       <g transform="matrix(1,0,0,1,-0.6060526011791012,0.2522267206477409)">
@@ -50,7 +47,7 @@ function Logo({}: Props) {
                       xmlns="http://www.w3.org/2000/svg"
                       d="M55.039 247.2l50.688-87.794h3.487l-48.848 84.608h274.788l-48.848-84.608 3.487 0 50.688 87.794zM197.76 0l50.688 87.794h-3.488l-47.2-81.754-47.2 81.754-3.488 0z"
                       fillRule="nonzero"
-                      stroke="#000"
+                      stroke="#000000"
                       strokeWidth="1"
                       strokeLinecap="butt"
                       strokeLinejoin="miter"
