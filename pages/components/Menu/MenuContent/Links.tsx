@@ -12,7 +12,6 @@ interface NavLinks {
 
 const navLinks: NavLinks[] = [
   { value: 'Sobre mí', link: 'about' },
-  { value: 'Experiencia', link: 'experience' },
   { value: 'Proyectos', link: 'projects' },
   { value: 'Contacto', link: 'contact' },
 ]

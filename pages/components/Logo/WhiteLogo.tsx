@@ -1,9 +1,12 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
-type Props = {}
+type Props = {
+  height?: number
+  width?: number
+}
 
-function LogoBackground({}: Props) {
+function WhiteLogo({ height, width }: Props) {
   const triangleVariants = {
     hidden: {
       pathLength: 0,
@@ -18,12 +21,15 @@ function LogoBackground({}: Props) {
     },
   }
 
+  console.log(height)
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       version="1.1"
-      width="120"
-      height="120"
+      className={`${!width && !height ? 'h-20 w-20 md:h-24 md:w-24' : ''}`}
+      width={width}
+      height={height}
       viewBox="0 0 1000 623"
     >
       <g transform="matrix(1,0,0,1,-0.6060526011791012,0.2522267206477409)">
@@ -152,4 +158,4 @@ function LogoBackground({}: Props) {
   )
 }
 
-export default LogoBackground
+export default WhiteLogo

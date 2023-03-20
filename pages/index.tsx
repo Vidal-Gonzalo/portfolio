@@ -5,6 +5,7 @@ import { Livvic } from 'next/font/google'
 import Header from './components/Header'
 import About from './components/About'
 import Projects from './components/Projects'
+import Contact from './components/Contact'
 
 const livvic = Livvic({
   subsets: ['latin'],
@@ -28,7 +29,6 @@ const Home: NextPage = () => {
       >
         <Hero />
       </section>
-
       <section
         id="about"
         className={`${livvic.className} font-sans flex items-center bg-[#f6f3ee] snap-start`}
@@ -40,6 +40,13 @@ const Home: NextPage = () => {
         className={`${livvic.className} font-sans flex items-center bg-[#f6f3ee] snap-center`}
       >
         <Projects />
+      </section>
+      {/* <div className="h-[20%] w-[99%] relative before:absolute before:top-0 before:left-0 before:right-0 before:h-full before:bg-gradient-to-b before:from-[#f6f3ee] before:to-[#212129]"></div> */}
+      <section
+        id="contact"
+        className={`${livvic.className} font-sans flex items-center bg-[#f6f3ee] snap-center overflow-visible`}
+      >
+        <Contact />
       </section>
     </div>
   )

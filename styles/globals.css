@@ -13,3 +13,11 @@
     @apply scroll-smooth;
   }
 }
+
+@layer components {
+  :root {
+    --swiper-pagination-color: #fff;
+    --swiper-pagination-bullet-inactive-color: rgb(109, 108, 110);
+    --swiper-pagination-bullet-inactive-opacity: 1;
+  }
+}

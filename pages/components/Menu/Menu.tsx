@@ -1,8 +1,8 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import ParticlesBackground from '../Particles/ParticlesBackground'
-import LogoBackground from '../Logo/WhiteLogo'
-import Icons from './MenuContent/Icons'
+import WhiteLogo from '../Logo/WhiteLogo'
+import Icons from '../Icons'
 import { Livvic } from 'next/font/google'
 import Links from './MenuContent/Links'
 import Link from 'next/link'
@@ -41,7 +41,7 @@ function Menu({ navbarOpen, changeNavbarStatus }: Props) {
       >
         {navbarOpen ? (
           <Link href="#hero" onClick={changeNavbarStatus}>
-            <LogoBackground />{' '}
+            <WhiteLogo width={120} height={120} />{' '}
           </Link>
         ) : null}
         <Links changeNavbarStatus={changeNavbarStatus} />
