@@ -41,7 +41,7 @@ module.exports = {
         move3: 'move 4s linear infinite',
         move4: 'move 5s linear infinite',
         move5: 'move 6s linear infinite',
-        move6: 'move 2s linear infinite',
+        move6: 'move 6s linear infinite',
         move7: 'move 3s linear infinite',
         move8: 'move 2.4s linear infinite',
         move9: 'move 1.75s linear infinite',

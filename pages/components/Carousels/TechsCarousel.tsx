@@ -1,5 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
+import 'swiper/css'
+import 'swiper/css/pagination'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper'
 import { Tech } from '@/models'
@@ -28,7 +30,10 @@ function TechsCarousel({ techs, slides }: Props) {
       className="w-1/2 h-1/2"
     >
       {techs.map((tech, index) => (
-        <SwiperSlide key={index}>
+        <SwiperSlide
+          key={index}
+          className="flex flex-col justify-center items-center"
+        >
           <Image
             width={tech.width}
             src={tech.image}

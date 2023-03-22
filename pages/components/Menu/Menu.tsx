@@ -45,7 +45,7 @@ function Menu({ navbarOpen, changeNavbarStatus }: Props) {
           </Link>
         ) : null}
         <Links changeNavbarStatus={changeNavbarStatus} />
-        <Icons />
+        <Icons color={'white'} />
       </motion.div>
     </motion.nav>
   )

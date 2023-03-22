@@ -9,7 +9,7 @@ type Props = {}
 
 function About({}: Props) {
   return (
-    <div className=" w-screen flex flex-col justify-center items-center lg:h-screen lg:flex-row overflow-hidden">
+    <div className="h-screen w-screen flex flex-col justify-center items-center lg:h-screen lg:flex-row overflow-hidden">
       <motion.div
         initial={{ x: -200, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}

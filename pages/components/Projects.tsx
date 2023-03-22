@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import 'swiper/css'
-import 'swiper/css/pagination'
 import { motion } from 'framer-motion'
 import ProjectsCarousel from './Carousels/ProjectsCarousel'
 import ProjectDescription from './ProjectDescription'
@@ -57,5 +55,3 @@ function Projects({}: Props) {
 }
 
 export default Projects
-
-// before:absolute before:h-1/4 before:content-[''] before:z-50 before:bottom-0 before:left-0 before:right-0 before:bg-red-500]

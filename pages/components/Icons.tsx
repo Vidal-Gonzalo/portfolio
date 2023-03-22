@@ -2,7 +2,10 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { SocialIcon } from 'react-social-icons'
 
-type Props = {}
+type Props = {
+  color: string
+  background?: string
+}
 
 interface SocialNetworks {
   network: string
@@ -21,7 +24,7 @@ const socialNetworks: SocialNetworks[] = [
   { network: 'email' },
 ]
 
-function NavbarIcons({}: Props) {
+function NavbarIcons({ color, background }: Props) {
   return (
     <motion.div
       className="flex justify-center space-x-10"
@@ -34,8 +37,8 @@ function NavbarIcons({}: Props) {
           key={index}
           network={value.network}
           url={value.url ? value.url : undefined}
-          fgColor="white"
-          bgColor="transparent"
+          fgColor={color}
+          bgColor={background ? background : 'transparent'}
           target={'_blank'}
         />
       ))}

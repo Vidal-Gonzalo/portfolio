@@ -1,4 +1,6 @@
 import Image, { StaticImageData } from 'next/image'
+import 'swiper/css'
+import 'swiper/css/pagination'
 import React from 'react'
 import { Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -20,7 +22,7 @@ function ProjectsCarousel({ handleSlideChange, projectsImages }: Props) {
       {projectsImages?.map((project, index) => (
         <SwiperSlide
           key={index}
-          className="relative after:absolute after:bottom-0 after:right-0 after:left-0 after:h-[20%] lg:after:h-[10%] after:bg-[rgba(0,0,0,0.7)]"
+          className="relative after:absolute after:bottom-0 after:right-0 after:left-0 after:h-[20%] lg:after:h-[12%] after:bg-[rgba(0,0,0,0.4)]"
         >
           <Image
             src={project.image}

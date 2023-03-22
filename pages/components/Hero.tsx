@@ -3,7 +3,7 @@ import Image from 'next/image'
 import statue from '../../public/statue.png'
 import ArrowDownCircle from '@heroicons/react/20/solid/ArrowDownCircleIcon'
 import { motion } from 'framer-motion'
-import { SocialIcon } from 'react-social-icons'
+import Icons from './Icons'
 import Link from 'next/link'
 
 type Props = {}
@@ -42,26 +42,7 @@ function Hero({}: Props) {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1 }}
           >
-            <SocialIcon
-              url="https://www.linkedin.com/in/vidal-gonzalo"
-              fgColor="gray"
-              bgColor="transparent"
-              target={'_blank'}
-              className="cursor-pointer"
-            />{' '}
-            <SocialIcon
-              url="https://www.github.com/vidal-gonzalo"
-              fgColor="gray"
-              bgColor="transparent"
-              target={'_blank'}
-            />
-            <SocialIcon
-              className="cursor-pointer"
-              network="email"
-              fgColor="gray"
-              target={'_blank'}
-              bgColor="transparent"
-            />
+            <Icons color={'#5D4739'} />
           </motion.div>
           <button className="border-2 border-solid border-brown mt-5 p-3 w-[50%] md:w-[20%] ">
             Ver CV

@@ -7,7 +7,9 @@ function Form({}: Props) {
     <form>
       <div className="lg:flex mb-4">
         <div className="w-full lg:w-1/2 lg:pr-4 mb-4">
-          <label className="block text-slate-200 mb-2 ">Nombre completo</label>
+          <label className="block text-slate-200 mb-2 2xl:text-xl">
+            Nombre completo
+          </label>
           <input
             className="appearance-none bg-white border border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
             id="name"
@@ -16,7 +18,7 @@ function Form({}: Props) {
           />
         </div>
         <div className="w-full lg:w-1/2 lg:pl-4 mb-4">
-          <label className="block text-slate-200 mb-2">
+          <label className="block text-slate-200 mb-2 2xl:text-xl">
             Correo electrónico
           </label>
           <input
@@ -28,12 +30,12 @@ function Form({}: Props) {
         </div>
       </div>
       <div className="mb-4">
-        <label className="block mb-2">Mensaje</label>
+        <label className="block mb-2 2xl:text-xl">Mensaje</label>
         <textarea
           className="appearance-none bg-white border resize-none border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
           id="message"
           placeholder="Escribe tu mensaje aquí"
-          rows={6}
+          rows={4}
         />
       </div>
       <div className="flex justify-end">
