@@ -20,6 +20,11 @@ module.exports = {
       boxShadow: {
         custom:
           '0 0 0 4px rgba(255, 255, 255, 0.1), 0 0 0 2px rgba(255, 255, 255, 0.1), 0 0 30px rgba(255, 255, 255, 1)',
+        shading:
+          '0 0 0 4px rgba(0, 0, 0, 0.1), 0 0 0 2px rgba(0, 0, 0, 0.1), 0 0 30px rgba(0, 0, 0, 1)',
+      },
+      backgroundColor: {
+        shade: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, #141f35 100%)',
       },
       keyframes: {
         move: {

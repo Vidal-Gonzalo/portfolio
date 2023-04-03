@@ -14,7 +14,7 @@ type Props = {
 function TechsCarousel({ techs, slides }: Props) {
   let loopEnabled = false
   if (slides) {
-    loopEnabled = techs.length >= slides * 2
+    loopEnabled = techs.length <= slides * 2
   }
 
   return (
@@ -32,10 +32,10 @@ function TechsCarousel({ techs, slides }: Props) {
       {techs.map((tech, index) => (
         <SwiperSlide
           key={index}
-          className="flex flex-col justify-center items-center"
+          className="flex flex-col justify-center items-center relative z-[-1]"
         >
           <Image
-            width={tech.width}
+            width={slides ? (slides < 4 ? 50 : tech.width) : tech.width}
             src={tech.image}
             alt={tech.title}
             title={tech.title}

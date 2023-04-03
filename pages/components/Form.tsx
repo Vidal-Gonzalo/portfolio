@@ -4,9 +4,9 @@ type Props = {}
 
 function Form({}: Props) {
   return (
-    <form>
-      <div className="lg:flex mb-4">
-        <div className="w-full lg:w-1/2 lg:pr-4 mb-4">
+    <form className="w-3/4">
+      <div className=" mb-4">
+        <div className="w-full mb-4">
           <label className="block text-slate-200 mb-2 2xl:text-xl">
             Nombre completo
           </label>
@@ -17,7 +17,7 @@ function Form({}: Props) {
             placeholder="Nombre"
           />
         </div>
-        <div className="w-full lg:w-1/2 lg:pl-4 mb-4">
+        <div className="w-full mb-4">
           <label className="block text-slate-200 mb-2 2xl:text-xl">
             Correo electrónico
           </label>

@@ -9,6 +9,7 @@ export interface Tech {
 export interface Project {
     image: StaticImageData | string
     alt: string
+    delay: number
     liveUrl?: string
     codeUrl?: string
     title: string
