@@ -13,14 +13,14 @@ type Props = {
 
 function TechsCarousel({ techs, slides }: Props) {
   let loopEnabled = false
-  if (slides) {
+  if (slides && techs) {
     loopEnabled = techs.length <= slides * 2
   }
 
   return (
     <Swiper
       modules={[Autoplay]}
-      slidesPerView={slides ? slides : techs.length}
+      slidesPerView={slides ? slides : techs ? techs.length : 0}
       loop={loopEnabled}
       autoplay={{
         delay: 1000,
@@ -29,7 +29,7 @@ function TechsCarousel({ techs, slides }: Props) {
       speed={3000}
       className="w-1/2 h-1/2"
     >
-      {techs.map((tech, index) => (
+      {techs?.map((tech, index) => (
         <SwiperSlide
           key={index}
           className="flex flex-col justify-center items-center relative z-[-1]"
