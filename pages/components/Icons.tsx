@@ -35,9 +35,8 @@ function NavbarIcons({ color, background }: Props) {
     >
       {socialNetworks.map((value, index) =>
         value.network === 'email' ? (
-          <Link href="#contact">
+          <Link href="#contact" key={index}>
             <SocialIcon
-              key={index}
               network={value.network}
               url={value.url ? value.url : undefined}
               fgColor={color}

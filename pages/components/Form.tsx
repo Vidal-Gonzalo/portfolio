@@ -21,7 +21,12 @@ function Form({}: Props) {
     const template = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE
     const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLICKEY
 
-    if (form.current && service && template && publicKey) {
+    const requiredFields = ['name', 'email', 'message']
+    const isFormValid = requiredFields.every((field) => {
+      return form.current && form.current[field]?.value.trim() !== ''
+    })
+
+    if (form.current && service && template && publicKey && isFormValid) {
       emailjs.sendForm(service, template, form.current, publicKey).then(
         () => {
           setIsLoading(false)
@@ -37,7 +42,7 @@ function Form({}: Props) {
   }
 
   return (
-    <form className="w-3/4" ref={form} onSubmit={sendEmail}>
+    <form className="w-full md:w-3/4" ref={form} onSubmit={sendEmail}>
       <div className="mb-4">
         <div className="w-full mb-4">
           <label className="block text-slate-200 mb-2 2xl:text-xl">
@@ -74,9 +79,9 @@ function Form({}: Props) {
           rows={4}
         />
       </div>
-      <div className="flex justify-end">
+      <div className="w-full flex justify-end">
         <button
-          className={`border border-slate-100 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center ${
+          className={`w-full md:w-1/4 justify-center border border-slate-100 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center ${
             error && 'border-red-500'
           } ${isLoading && 'border-yellow-500'} ${sent && 'border-green-500'}`}
           type="submit"
