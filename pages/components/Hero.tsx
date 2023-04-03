@@ -44,9 +44,14 @@ function Hero({}: Props) {
           >
             <Icons color={'#5D4739'} />
           </motion.div>
-          <button className="border-2 border-solid border-brown mt-5 p-3 w-[50%] md:w-[20%] ">
+          <a
+            href="/CV-Gonzalo-Vidal.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border-2 border-solid border-brown mt-5 p-3 w-[50%] md:w-[20%] "
+          >
             Ver CV
-          </button>
+          </a>
         </div>
       </div>
       <motion.div
