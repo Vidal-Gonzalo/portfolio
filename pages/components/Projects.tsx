@@ -45,7 +45,7 @@ function ProjectsExample({}: Props) {
           ) : project?.position === 'left' ? (
             <div
               key={index}
-              className="w-full flex flex-col lg:flex-row justify-around items-center 2xl:h-[80vh]"
+              className="w-full flex flex-col lg:flex-row justify-around items-center 2xl:h-[80vh] overflow-hidden"
             >
               {' '}
               {project?.image ? (
