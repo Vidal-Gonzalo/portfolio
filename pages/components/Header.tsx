@@ -9,7 +9,7 @@ import Link from 'next/link'
 type Props = {}
 
 export default function Header({}: Props) {
-  const [isInContact, setIsInContact] = useState(false)
+  const [isInContact, setIsInContact] = useState<boolean>(false)
   const [navbarOpen, setNavbarOpen] = useState<boolean>(false)
 
   const changeNavbarStatus = () => {
@@ -24,8 +24,8 @@ export default function Header({}: Props) {
       if (!contactPosition || contactPosition === undefined) return
 
       if (
-        contactPosition <= window.innerHeight / 6 &&
-        contactPosition >= -contactSection.offsetHeight / 2
+        contactPosition <= window.innerHeight / 10 &&
+        contactPosition >= -contactSection.offsetHeight / 4
       ) {
         setIsInContact(true)
       } else {
@@ -43,7 +43,9 @@ export default function Header({}: Props) {
   return (
     <>
       <header
-        className={`fixed md:p-5 flex justify-between w-screen xl:items-center z-10`}
+        className={`fixed md:p-5 flex justify-between w-screen xl:items-center z-10 bg-[#f6f3ee] shadow-lg md:bg-transparent md:shadow-none ${
+          isInContact && 'bg-transparent'
+        }`}
       >
         <motion.div className="pl-2 md:pl-5 flex flex-row items-center justify-start">
           <Link href="#hero">{isInContact ? <WhiteLogo /> : <Logo />}</Link>

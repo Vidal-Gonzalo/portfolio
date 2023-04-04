@@ -3,12 +3,13 @@ import ShootingStars from './ShootingStars/ShootingStars'
 import Icons from './Icons'
 import Form from './Form'
 import { motion } from 'framer-motion'
+import Footer from './Footer'
 
 type Props = {}
 
 function Contact({}: Props) {
   return (
-    <div className="relative w-screen md:h-screen overflow-hidden before:absolute before:left-0 before:right-0 before:top-0 before:bottom-0 before:height-full before:bg-[rgba(0,0,0,0.6)] bg-[url('/athens.jpeg')] bg-cover object-cover bg-center flex justify-center items-center z-0 ">
+    <div className="relative flex-col w-screen md:h-screen overflow-hidden before:absolute before:left-0 before:right-0 before:top-0 before:bottom-0 before:height-full before:bg-[rgba(0,0,0,0.6)] bg-[url('/athens.jpeg')] bg-cover object-cover bg-center flex justify-center items-center z-0 ">
       <ShootingStars />
       <div className="relative h-full w-3/4 text-white z-10 md:h-2/4 lg:h-3/4 flex flex-col md:flex-row items-center ">
         <motion.div
@@ -47,6 +48,8 @@ function Contact({}: Props) {
           <Form />
         </motion.div>
       </div>
+
+      <Footer />
     </div>
   )
 }
