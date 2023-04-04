@@ -24,8 +24,8 @@ export default function Header({}: Props) {
       if (!contactPosition || contactPosition === undefined) return
 
       if (
-        contactPosition <= window.innerHeight / 10 &&
-        contactPosition >= -contactSection.offsetHeight / 4
+        contactPosition <= window.innerHeight / 20 &&
+        contactPosition >= -contactSection.offsetHeight / 6
       ) {
         setIsInContact(true)
       } else {

@@ -16,17 +16,21 @@ function Form({}: Props) {
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setIsLoading(true)
     const service = process.env.NEXT_PUBLIC_EMAILJS_SERVICE
     const template = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE
     const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLICKEY
 
-    const requiredFields = ['name', 'email', 'message']
+    const requiredFields = ['from_name', 'from_email', 'message']
     const isFormValid = requiredFields.every((field) => {
-      return form.current && form.current[field]?.value.trim() !== ''
+      return (
+        form.current &&
+        form.current[field] &&
+        form.current[field].value.trim() !== ''
+      )
     })
 
     if (form.current && service && template && publicKey && isFormValid) {
+      setIsLoading(true)
       emailjs.sendForm(service, template, form.current, publicKey).then(
         () => {
           setIsLoading(false)
@@ -38,11 +42,12 @@ function Form({}: Props) {
           setError(true)
         },
       )
+      form.current.reset()
     }
   }
 
   return (
-    <form className="w-full md:w-3/4" ref={form} onSubmit={sendEmail}>
+    <form className="w-full lg:w-3/4" ref={form} onSubmit={sendEmail}>
       <div className="mb-4">
         <div className="w-full mb-4">
           <label className="block text-slate-200 mb-2 2xl:text-xl">
@@ -81,7 +86,7 @@ function Form({}: Props) {
       </div>
       <div className="w-full flex justify-end">
         <button
-          className={`w-full md:w-1/4 justify-center border border-slate-100 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center ${
+          className={`w-full lg:w-1/4 justify-center border border-slate-100 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center ${
             error && 'border-red-500'
           } ${isLoading && 'border-yellow-500'} ${sent && 'border-green-500'}`}
           type="submit"

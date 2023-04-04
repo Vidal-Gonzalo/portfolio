@@ -13,7 +13,7 @@ function Contact({}: Props) {
       <ShootingStars />
       <div className="relative h-full w-3/4 text-white z-10 md:h-2/4 lg:h-3/4 flex flex-col md:flex-row items-center ">
         <motion.div
-          className="relative w-full p-5 md:w-3/4 h-full md:h-full flex items-center justify-end md:justify-center flex-col md:pl-16 md:items-start mt-10"
+          className="relative w-full p-5 md:w-3/4 h-full flex items-center justify-end md:justify-center flex-col lg:pl-16 lg:items-start mt-10"
           initial={{ x: -200, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 1 }}

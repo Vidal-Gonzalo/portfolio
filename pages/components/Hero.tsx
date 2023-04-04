@@ -32,7 +32,7 @@ function Hero({}: Props) {
             initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1 }}
-            className="text-4xl md:text-6xl uppercase px-10 pb-6 tracking-[7px] text-shadow-lg"
+            className="text-4xl md:text-6xl uppercase px-10 pb-6 tracking-[7px]"
           >
             Gonzalo Vidal
           </motion.h1>

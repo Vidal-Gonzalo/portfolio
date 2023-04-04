@@ -31,7 +31,7 @@ function About({}: Props) {
           </h3>
           <div className="w-full flex flex-col">
             {' '}
-            <p className="p-5 md:leading-6 text-xs md:text-sm w-full lg:text-xl text-center 2xl:text-2xl">
+            <p className="p-5 md:leading-6 text-xs md:text-sm w-full lg:text-xl 2xl:text-2xl">
               ¡Hola! Mi nombre es Gonzalo Vidal. Soy desarrollador front-end y
               estudiante de la Tecnicatura Superior en Sistemas en la
               Universidad Tecnológica Nacional desde principios de 2022. Me
@@ -41,7 +41,7 @@ function About({}: Props) {
               <span className="italic">escritura</span> y la{' '}
               <span className="italic">filosofía</span>.
             </p>
-            <p className="p-5 md:leading-6 text-xs md:text-sm w-full lg:text-xl text-center 2xl:text-2xl">
+            <p className="p-5 md:leading-6 text-xs md:text-sm w-full lg:text-xl 2xl:text-2xl">
               Disfruto mucho trabajar del lado del cliente, pero mis proyectos y
               la universidad me llevaron a aprender también programación del
               lado del servidor.
