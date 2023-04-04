@@ -58,7 +58,7 @@ function Hero({}: Props) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 2 }}
-        className="absolute bottom-[2%] left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+        className="absolute bottom-[4%] lg:bottom-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
       >
         <Link href="#about">
           <ArrowDownCircle className="h-12 w-12 text-brown animate-bounce cursor-pointer" />
