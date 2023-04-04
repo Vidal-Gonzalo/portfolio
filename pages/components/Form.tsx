@@ -86,7 +86,7 @@ function Form({}: Props) {
       </div>
       <div className="w-full flex justify-end">
         <button
-          className={`w-full lg:w-1/4 justify-center border border-slate-100 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center ${
+          className={`w-full lg:w-[35%] justify-center border border-slate-100 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center ${
             error && 'border-red-500'
           } ${isLoading && 'border-yellow-500'} ${sent && 'border-green-500'}`}
           type="submit"
