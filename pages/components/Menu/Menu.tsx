@@ -6,8 +6,10 @@ import Icons from '../Icons'
 import { Livvic } from 'next/font/google'
 import Links from './MenuContent/Links'
 import Link from 'next/link'
+import { HeaderInfo } from '@/typings'
 
 type Props = {
+  headerInfo: HeaderInfo
   navbarOpen: boolean
   changeNavbarStatus: () => void
 }
@@ -18,7 +20,7 @@ const livvic = Livvic({
   style: 'normal',
 })
 
-function Menu({ navbarOpen, changeNavbarStatus }: Props) {
+function Menu({ headerInfo, navbarOpen, changeNavbarStatus }: Props) {
   return (
     <motion.nav
       id="overlayNav"
@@ -44,8 +46,15 @@ function Menu({ navbarOpen, changeNavbarStatus }: Props) {
             <WhiteLogo width={120} height={120} />{' '}
           </Link>
         ) : null}
-        <Links changeNavbarStatus={changeNavbarStatus} />
-        <Icons color={'white'} changeNavbarStatus={changeNavbarStatus} />
+        <Links
+          links={headerInfo?.links}
+          changeNavbarStatus={changeNavbarStatus}
+        />
+        <Icons
+          socials={headerInfo?.socials}
+          color={'white'}
+          changeNavbarStatus={changeNavbarStatus}
+        />
       </motion.div>
     </motion.nav>
   )

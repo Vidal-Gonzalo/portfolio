@@ -6,13 +6,22 @@ import Header from './components/Header'
 import AboutMe from './components/AboutMe'
 import ContactMe from './components/ContactMe'
 import Projects from './components/Projects'
-import { About, Contact, PageInfo, Project, Skill, Social } from '@/typings'
+import {
+  About,
+  Contact,
+  HeaderInfo,
+  PageInfo,
+  Project,
+  Skill,
+  Social,
+} from '@/typings'
 import { fetchPageInfo } from '@/utils/fetchPageInfo'
 import { fetchAbout } from '@/utils/fetchAbout'
 import { fetchSkills } from '@/utils/fetchSkills'
 import { fetchProjects } from '@/utils/fetchProjects'
 import { fetchSocials } from '@/utils/fetchSocials'
 import { fetchContact } from '@/utils/fetchContact'
+import { fetchHeader } from '@/utils/fetchHeader'
 
 const livvic = Livvic({
   subsets: ['latin'],
@@ -21,22 +30,14 @@ const livvic = Livvic({
 })
 
 type Props = {
+  header: HeaderInfo
   pageInfo: PageInfo
   about: About
   projects: Project[]
   contact: Contact
-  skills: Skill[]
-  socials: Social[]
 }
 
-const Home = ({
-  pageInfo,
-  about,
-  contact,
-  projects,
-  skills,
-  socials,
-}: Props) => {
+const Home = ({ header, pageInfo, about, contact, projects }: Props) => {
   return (
     <div className="scroll-smooth h-screen snap-y snap-mandatory">
       <Head>
@@ -45,7 +46,7 @@ const Home = ({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
+      <Header header={header} />
       <section
         id="hero"
         className={`${livvic.className} font-sans flex items-center bg-[#f6f3ee] snap-start `}
@@ -77,20 +78,18 @@ const Home = ({
 export default Home
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
+  const header: HeaderInfo = await fetchHeader()
   const pageInfo: PageInfo = await fetchPageInfo()
   const about: About = await fetchAbout()
   const projects: Project[] = await fetchProjects()
   const contact: Contact = await fetchContact()
-  const skills: Skill[] = await fetchSkills()
-  const socials: Social[] = await fetchSocials()
   return {
     props: {
+      header,
       pageInfo,
       about,
       projects,
       contact,
-      skills,
-      socials,
     },
     revalidate: 10,
   }

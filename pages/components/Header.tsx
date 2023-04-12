@@ -5,10 +5,13 @@ import Logo from './Logo/Logo'
 import WhiteLogo from './Logo/WhiteLogo'
 import Menu from './Menu/Menu'
 import Link from 'next/link'
+import { HeaderInfo } from '@/typings'
 
-type Props = {}
+type Props = {
+  header: HeaderInfo
+}
 
-export default function Header({}: Props) {
+export default function Header({ header }: Props) {
   const [isInContact, setIsInContact] = useState<boolean>(false)
   const [navbarOpen, setNavbarOpen] = useState<boolean>(false)
 
@@ -64,7 +67,11 @@ export default function Header({}: Props) {
           />
         </motion.div>
       </header>
-      <Menu navbarOpen={navbarOpen} changeNavbarStatus={changeNavbarStatus} />
+      <Menu
+        headerInfo={header}
+        navbarOpen={navbarOpen}
+        changeNavbarStatus={changeNavbarStatus}
+      />
     </>
   )
 }

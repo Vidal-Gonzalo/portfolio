@@ -1,29 +1,21 @@
+import { LinkTo } from '@/typings'
 import Link from 'next/link'
 import React from 'react'
 
 type Props = {
+  links: LinkTo[]
   changeNavbarStatus: () => void
 }
 
-interface NavLinks {
-  value: string
-  link: string
-}
-
-const navLinks: NavLinks[] = [
-  { value: 'About me', link: 'about' },
-  { value: 'Projects', link: 'projects' },
-  { value: 'Contact', link: 'contact' },
-]
-
-function Links({ changeNavbarStatus }: Props) {
+function Links({ links, changeNavbarStatus }: Props) {
+  console.log(links)
   return (
     <>
-      {navLinks.map((value, i) => (
+      {links?.map((value, i) => (
         <Link
           key={i}
           className="text-2xl"
-          href={`#${value.link}`}
+          href={`#${value.to}`}
           onClick={changeNavbarStatus}
         >
           <span className="p-5 border-b-4">{value.value}</span>

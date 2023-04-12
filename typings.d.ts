@@ -32,6 +32,18 @@ export interface Input extends SanityBody {
     type: string;
 }
 
+export interface LinkTo extends SanityBody {
+    _type: "link";
+    value: string;
+    to: string;
+}
+
+export interface HeaderInfo extends SanityBody {
+    _type: "header";
+    links: Link[];
+    socials: Social[];
+}
+
 export interface PageInfo extends SanityBody {
     _type: "pageInfo";
     heroImage: Image;
