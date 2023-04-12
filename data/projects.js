@@ -3,7 +3,6 @@ import react from '../public/react.png'
 import typescript from '../public/typescript.png'
 import next from '../public/next.png'
 import tailwind from '../public/tailwind.png'
-import athens from '../public/athens.jpeg'
 import examples from '@/public/examples.png'
 
 const projects = [

@@ -1,9 +1,9 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Project } from '@/models'
 import TechsCarousel from './Carousels/TechsCarousel'
 import GlobeAltIcon from '@heroicons/react/20/solid/GlobeAltIcon'
 import CodeBracketIcon from '@heroicons/react/20/solid/CodeBracketIcon'
+import { Project } from '@/typings'
 
 type Props = {
   project: Project
@@ -17,7 +17,9 @@ function ProjectDescription({ project }: Props) {
         <p className="text-md w-3/4">{project?.description}</p>
       </div>
 
-      {project?.techs ? <TechsCarousel techs={project?.techs} /> : null}
+      {project?.technologies ? (
+        <TechsCarousel techs={project?.technologies} />
+      ) : null}
       <div className="space-x-5 text-center flex justify-center">
         <button className="w-24 h-10 2xl:w-32 border border-brown flex items-center justify-center text-brown">
           <GlobeAltIcon className="h-6 w-6 mr-2" /> Live

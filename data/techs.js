@@ -13,7 +13,7 @@ import redux from '../public/redux.png'
 
 const tech = [
   { title: 'React.js', image: react, width: 60 },
-  { title: 'Typescript.js', image: typescript, width: 60 },
+  { title: 'Typescript', image: typescript, width: 60 },
   { title: 'Redux', image: redux, width: 60 },
   { title: 'Tailwind.css', image: tailwind, width: 60 },
   { title: 'Bootstrap', image: bootstrap, width: 60 },

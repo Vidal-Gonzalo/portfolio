@@ -11,20 +11,30 @@ export default defineType({
       type: 'string',
     }),
     defineField({
-      name: "description_one",
-      title: "Description One",
-      type: "text"
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
     }),
     defineField({
-        name: "description_two",
-        title: "Description Two",
-        type: "text"
+      name: 'description',
+      title: 'Description',
+      type: 'array',
+      of: [{type: 'string'}],
     }),
     defineField({
-        name: 'techs',
-        title: 'Techs',
-        type: 'array',
-        of: [{type: "reference", to: {type: "skill"}}]
+      name: 'socials',
+      title: 'Socials',
+      type: 'array',
+      of: [{type: 'reference', to: {type: 'social'}}],
+    }),
+    defineField({
+      name: 'inputs',
+      title: 'Inputs',
+      type: 'array',
+      of: [{type: 'reference', to: {type: 'input'}}],
     }),
   ],
 })

@@ -1,31 +1,21 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { SocialIcon } from 'react-social-icons'
+import { Social } from '@/typings'
 
 type Props = {
+  socials: Social[]
   color: string
   background?: string
   changeNavbarStatus?: () => void
 }
 
-interface SocialNetworks {
-  network: string
-  url?: string
-}
-
-const socialNetworks: SocialNetworks[] = [
-  {
-    network: 'linkedin',
-    url: 'https://www.linkedin.com/in/vidal-gonzalo',
-  },
-  {
-    network: 'github',
-    url: 'https://www.github.com/vidal-gonzalo',
-  },
-  { network: 'email', url: '/#contact' },
-]
-
-function NavbarIcons({ color, background, changeNavbarStatus }: Props) {
+function NavbarIcons({
+  socials,
+  color,
+  background,
+  changeNavbarStatus,
+}: Props) {
   return (
     <motion.div
       className="flex justify-center space-x-10"
@@ -33,12 +23,12 @@ function NavbarIcons({ color, background, changeNavbarStatus }: Props) {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      {socialNetworks.map((value, index) =>
-        value.network === 'email' ? (
+      {socials?.map((value, index) =>
+        value.title === 'email' ? (
           <SocialIcon
             key={index}
-            network={value.network}
-            url={value.url ? value.url : undefined}
+            network={value.title}
+            url={'/#contact'}
             fgColor={color}
             bgColor={background ? background : 'transparent'}
             onClick={changeNavbarStatus && changeNavbarStatus}
@@ -46,8 +36,8 @@ function NavbarIcons({ color, background, changeNavbarStatus }: Props) {
         ) : (
           <SocialIcon
             key={index}
-            network={value.network}
-            url={value.url ? value.url : undefined}
+            network={value.title}
+            url={value.url}
             fgColor={color}
             bgColor={background ? background : 'transparent'}
             target={'_blank'}

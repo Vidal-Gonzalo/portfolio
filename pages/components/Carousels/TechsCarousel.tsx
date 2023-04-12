@@ -4,10 +4,11 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper'
-import { Tech } from '@/models'
+import { Skill } from '@/typings'
+import { urlFor } from '@/sanity'
 
 type Props = {
-  techs: Tech[]
+  techs: Skill[]
   slides?: number
 }
 
@@ -35,9 +36,11 @@ function TechsCarousel({ techs, slides }: Props) {
           className="flex flex-col justify-center items-center relative z-[-1]"
         >
           <Image
-            width={slides ? (slides < 4 ? 50 : tech.width) : tech.width}
-            src={tech.image}
+            src={urlFor(tech.image).url()}
+            width={slides ? (slides < 4 ? 50 : 60) : 60}
+            height={slides ? (slides < 4 ? 50 : 60) : 60}
             alt={tech.title}
+            className="w-auto h-auto"
             title={tech.title}
           />
         </SwiperSlide>

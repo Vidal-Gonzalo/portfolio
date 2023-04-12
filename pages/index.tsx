@@ -1,11 +1,18 @@
-import type { NextPage } from 'next'
+import type { GetStaticProps } from 'next'
 import Head from 'next/head'
 import Hero from './components/Hero'
 import { Livvic } from 'next/font/google'
 import Header from './components/Header'
-import About from './components/About'
-import Contact from './components/Contact'
+import AboutMe from './components/AboutMe'
+import ContactMe from './components/ContactMe'
 import Projects from './components/Projects'
+import { About, Contact, PageInfo, Project, Skill, Social } from '@/typings'
+import { fetchPageInfo } from '@/utils/fetchPageInfo'
+import { fetchAbout } from '@/utils/fetchAbout'
+import { fetchSkills } from '@/utils/fetchSkills'
+import { fetchProjects } from '@/utils/fetchProjects'
+import { fetchSocials } from '@/utils/fetchSocials'
+import { fetchContact } from '@/utils/fetchContact'
 
 const livvic = Livvic({
   subsets: ['latin'],
@@ -13,7 +20,23 @@ const livvic = Livvic({
   style: 'normal',
 })
 
-const Home: NextPage = () => {
+type Props = {
+  pageInfo: PageInfo
+  about: About
+  projects: Project[]
+  contact: Contact
+  skills: Skill[]
+  socials: Social[]
+}
+
+const Home = ({
+  pageInfo,
+  about,
+  contact,
+  projects,
+  skills,
+  socials,
+}: Props) => {
   return (
     <div className="scroll-smooth h-screen snap-y snap-mandatory">
       <Head>
@@ -27,28 +50,48 @@ const Home: NextPage = () => {
         id="hero"
         className={`${livvic.className} font-sans flex items-center bg-[#f6f3ee] snap-start `}
       >
-        <Hero />
+        <Hero pageInfo={pageInfo} />
       </section>
       <section
         id="about"
         className={`${livvic.className} font-sans flex items-center bg-[#f6f3ee] snap-start `}
       >
-        <About />
+        <AboutMe about={about} />
       </section>
       <section
         id="projects"
         className={`${livvic.className} font-sans flex items-center bg-[#f6f3ee] snap-center `}
       >
-        <Projects />
+        <Projects projects={projects} />
       </section>
       <section
         id="contact"
         className={`${livvic.className} font-sans flex items-center bg-[#f6f3ee] snap-center relative before:absolute before:h-10 before:top-0 before:left-0 before:right-0 before:shadow-shading`}
       >
-        <Contact />
+        <ContactMe contact={contact} />
       </section>
     </div>
   )
 }
 
 export default Home
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const pageInfo: PageInfo = await fetchPageInfo()
+  const about: About = await fetchAbout()
+  const projects: Project[] = await fetchProjects()
+  const contact: Contact = await fetchContact()
+  const skills: Skill[] = await fetchSkills()
+  const socials: Social[] = await fetchSocials()
+  return {
+    props: {
+      pageInfo,
+      about,
+      projects,
+      contact,
+      skills,
+      socials,
+    },
+    revalidate: 10,
+  }
+}

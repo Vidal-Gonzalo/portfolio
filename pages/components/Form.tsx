@@ -5,10 +5,13 @@ import Check from '@heroicons/react/24/solid/CheckIcon'
 import PaperAirplane from '@heroicons/react/24/solid/PaperAirplaneIcon'
 import Clock from '@heroicons/react/24/solid/ClockIcon'
 import { motion } from 'framer-motion'
+import { Input } from '@/typings'
 
-type Props = {}
+type Props = {
+  inputs: Input[]
+}
 
-function Form({}: Props) {
+function Form({ inputs }: Props) {
   const form = useRef<HTMLFormElement>(null)
   const [sent, setSent] = useState(false)
   const [error, setError] = useState(false)
@@ -49,40 +52,45 @@ function Form({}: Props) {
   return (
     <form className="w-full lg:w-3/4" ref={form} onSubmit={sendEmail}>
       <div className="mb-4">
-        <div className="w-full mb-4">
-          <label className="block text-slate-200 mb-2 2xl:text-xl">
-            Nombre completo
-          </label>
-          <input
-            className="appearance-none bg-white border border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
-            id="from_name"
-            name="from_name"
-            type="text"
-            placeholder="Nombre"
-          />
-        </div>
-        <div className="w-full mb-4">
-          <label className="block text-slate-200 mb-2 2xl:text-xl">
-            Correo electrónico
-          </label>
-          <input
-            className="appearance-none bg-white border border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
-            type="email"
-            name="from_email"
-            id="from_email"
-            placeholder="Correo electrónico"
-          />
-        </div>
-      </div>
-      <div className="mb-4">
-        <label className="block mb-2 2xl:text-xl">Mensaje</label>
-        <textarea
-          className="appearance-none bg-white border resize-none border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
-          id="message"
-          name="message"
-          placeholder="Escribe tu mensaje aquí"
-          rows={4}
-        />
+        {inputs.map((input, index) => {
+          const id =
+            input.label === 'E-mail'
+              ? 'from_email'
+              : input.label === 'Full name'
+              ? 'from_name'
+              : 'message'
+          const name =
+            input.label === 'E-mail'
+              ? 'from_email'
+              : input.label === 'Full name'
+              ? 'from_name'
+              : 'message'
+
+          return (
+            <div className="w-full mb-4" key={index}>
+              <label className="block text-slate-200 mb-2 2xl:text-xl">
+                {input.label}
+              </label>
+              {input.type === 'textarea' ? (
+                <textarea
+                  className="appearance-none bg-white border resize-none border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
+                  id={id}
+                  name={name}
+                  placeholder={input.placeholder}
+                  rows={4}
+                />
+              ) : (
+                <input
+                  className="appearance-none bg-white border border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
+                  id={id}
+                  name={name}
+                  type={input.type}
+                  placeholder={input.placeholder}
+                />
+              )}
+            </div>
+          )
+        })}
       </div>
       <div className="w-full flex justify-end">
         <button

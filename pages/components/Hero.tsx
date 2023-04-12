@@ -1,20 +1,25 @@
 import React from 'react'
 import Image from 'next/image'
-import statue from '../../public/statue.png'
 import ArrowDownCircle from '@heroicons/react/20/solid/ArrowDownCircleIcon'
 import { motion } from 'framer-motion'
 import Icons from './Icons'
 import Link from 'next/link'
+import { PageInfo } from '@/typings'
+import { urlFor } from '@/sanity'
 
-type Props = {}
+type Props = {
+  pageInfo: PageInfo
+}
 
-function Hero({}: Props) {
+function Hero({ pageInfo }: Props) {
   return (
-    <div className="relative w-screen h-screen font-sans ">
+    <div className="relative w-screen h-screen font-sans">
       <div className="flex-justify-center items-center">
         <Image
-          src={statue}
+          src={urlFor(pageInfo.heroImage).url()}
           alt={'Statue'}
+          width={1000}
+          height={1000}
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-3/4 md:h-full object-cover"
           priority
         />
@@ -26,7 +31,7 @@ function Hero({}: Props) {
             transition={{ duration: 1 }}
             className="text-sm tracking-[2px] uppercase pb-6 md:text-md md:tracking-[15px]"
           >
-            Desarrollador front-end
+            {pageInfo?.role}
           </motion.h2>
           <motion.h1
             initial={{ y: 100, opacity: 0 }}
@@ -34,7 +39,7 @@ function Hero({}: Props) {
             transition={{ duration: 1 }}
             className="text-4xl md:text-6xl uppercase px-10 pb-6 tracking-[7px]"
           >
-            Gonzalo Vidal
+            {pageInfo?.name}
           </motion.h1>
           <motion.div
             className=" flex justify-center space-x-10"
@@ -42,7 +47,7 @@ function Hero({}: Props) {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1 }}
           >
-            <Icons color={'#5D4739'} />
+            <Icons socials={pageInfo.socials} color={'#5D4739'} />
           </motion.div>
           <a
             href="/CV-Gonzalo-Vidal.pdf"

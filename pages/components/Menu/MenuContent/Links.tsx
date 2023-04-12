@@ -11,9 +11,9 @@ interface NavLinks {
 }
 
 const navLinks: NavLinks[] = [
-  { value: 'Sobre mí', link: 'about' },
-  { value: 'Proyectos', link: 'projects' },
-  { value: 'Contacto', link: 'contact' },
+  { value: 'About me', link: 'about' },
+  { value: 'Projects', link: 'projects' },
+  { value: 'Contact', link: 'contact' },
 ]
 
 function Links({ changeNavbarStatus }: Props) {
