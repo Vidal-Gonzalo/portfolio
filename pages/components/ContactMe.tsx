@@ -23,7 +23,10 @@ function ContactMe({ contact }: Props) {
         >
           <h3 className="text-xl md:text-4xl 2xl:text-6xl">{contact?.title}</h3>
           {contact?.description.map((description, index) => (
-            <p className="text-xs mt-2 text-center w-[85%] md:mt-5 lg:text-lg lg:text-left 2xl:text-2xl">
+            <p
+              key={index}
+              className="text-xs mt-2 text-center w-[85%] md:mt-5 lg:text-lg lg:text-left 2xl:text-2xl"
+            >
               {description}
             </p>
           ))}
@@ -43,7 +46,7 @@ function ContactMe({ contact }: Props) {
           transition={{ duration: 1 }}
           className="relative flex justify-center p-10 md:w-3/4 md:h-1/2 md:mt-0 md:flex md:items-start md:justify-evenly md:flex-col xl:items-center"
         >
-          <Form inputs={contact.inputs} />
+          <Form inputs={contact?.inputs} />
         </motion.div>
       </div>
 

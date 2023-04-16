@@ -52,7 +52,7 @@ function Form({ inputs }: Props) {
   return (
     <form className="w-full lg:w-3/4" ref={form} onSubmit={sendEmail}>
       <div className="mb-4">
-        {inputs.map((input, index) => {
+        {inputs?.map((input, index) => {
           const id =
             input.label === 'E-mail'
               ? 'from_email'

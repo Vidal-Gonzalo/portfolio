@@ -16,7 +16,7 @@ function Hero({ pageInfo }: Props) {
     <div className="relative w-screen h-screen font-sans">
       <div className="flex-justify-center items-center">
         <Image
-          src={urlFor(pageInfo.heroImage).url()}
+          src={urlFor(pageInfo?.heroImage).url()}
           alt={'Statue'}
           width={1000}
           height={1000}

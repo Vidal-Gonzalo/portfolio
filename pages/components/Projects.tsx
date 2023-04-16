@@ -11,7 +11,7 @@ type Props = {
   projects: Project[]
 }
 
-function ProjectsExample({ projects }: Props) {
+function Projects({ projects }: Props) {
   const [projectsToShow, setProjectsToShow] = useState<number>(4)
 
   return (
@@ -19,7 +19,7 @@ function ProjectsExample({ projects }: Props) {
       <div className="w-full flex justify-center md:justify-center">
         <h3 className="text-2xl md:text-5xl md:text-center ">My projects</h3>
       </div>
-      {projects.slice(0, projectsToShow).map((project, index) => {
+      {projects?.slice(0, projectsToShow).map((project, index) => {
         const isEvenIndex = index % 2 === 0
         return (
           <div className="w-full" key={index}>
@@ -55,7 +55,7 @@ function ProjectsExample({ projects }: Props) {
           </div>
         )
       })}
-      {projectsToShow < projects.length ? (
+      {projectsToShow < projects?.length ? (
         <motion.button
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -80,4 +80,4 @@ function ProjectsExample({ projects }: Props) {
   )
 }
 
-export default ProjectsExample
+export default Projects

@@ -16,13 +16,18 @@ const query = groq`
 `
 
 type Data = {
-  pageInfo: PageInfo
+  pageInfo?: PageInfo
+  error?: string
 }
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>,
 ) {
-  const pageInfo: PageInfo = await sanityClient.fetch(query)
-  res.status(200).json({ pageInfo })
+  try {
+    const pageInfo: PageInfo = await sanityClient.fetch(query)
+    res.status(200).json({ pageInfo })
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error' })
+  }
 }

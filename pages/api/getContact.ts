@@ -21,14 +21,18 @@ const query = groq`
 `
 
 type Data = {
-  contact: Contact
+  contact?: Contact
+  error?: string
 }
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>,
 ) {
-  const contact: Contact = await sanityClient.fetch(query)
-
-  res.status(200).json({ contact })
+  try {
+    const contact: Contact = await sanityClient.fetch(query)
+    res.status(200).json({ contact })
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error' })
+  }
 }

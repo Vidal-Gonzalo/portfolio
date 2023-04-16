@@ -6,20 +6,10 @@ import Header from './components/Header'
 import AboutMe from './components/AboutMe'
 import ContactMe from './components/ContactMe'
 import Projects from './components/Projects'
-import {
-  About,
-  Contact,
-  HeaderInfo,
-  PageInfo,
-  Project,
-  Skill,
-  Social,
-} from '@/typings'
+import { About, Contact, HeaderInfo, PageInfo, Project } from '@/typings'
 import { fetchPageInfo } from '@/utils/fetchPageInfo'
 import { fetchAbout } from '@/utils/fetchAbout'
-import { fetchSkills } from '@/utils/fetchSkills'
 import { fetchProjects } from '@/utils/fetchProjects'
-import { fetchSocials } from '@/utils/fetchSocials'
 import { fetchContact } from '@/utils/fetchContact'
 import { fetchHeader } from '@/utils/fetchHeader'
 

@@ -8,7 +8,6 @@ type Props = {
 }
 
 function Links({ links, changeNavbarStatus }: Props) {
-  console.log(links)
   return (
     <>
       {links?.map((value, i) => (
