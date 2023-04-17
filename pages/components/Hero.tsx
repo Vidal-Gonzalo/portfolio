@@ -15,14 +15,16 @@ function Hero({ pageInfo }: Props) {
   return (
     <div className="relative w-screen h-screen font-sans">
       <div className="flex-justify-center items-center">
-        <Image
-          src={urlFor(pageInfo?.heroImage).url()}
-          alt={'Statue'}
-          width={1000}
-          height={1000}
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-3/4 md:h-full object-cover"
-          priority
-        />
+        {pageInfo ? (
+          <Image
+            src={urlFor(pageInfo?.heroImage).url()}
+            alt={'Statue'}
+            width={1000}
+            height={1000}
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-3/4 md:h-full object-cover"
+            priority
+          />
+        ) : null}
 
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-full flex flex-col text-center items-center justify-center text-brown">
           <motion.h2
@@ -47,7 +49,7 @@ function Hero({ pageInfo }: Props) {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1 }}
           >
-            <Icons socials={pageInfo.socials} color={'#5D4739'} />
+            <Icons socials={pageInfo?.socials} color={'#5D4739'} />
           </motion.div>
           <a
             href="/CV-Gonzalo-Vidal.pdf"

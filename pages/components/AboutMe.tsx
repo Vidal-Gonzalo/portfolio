@@ -18,12 +18,14 @@ function AboutMe({ about }: Props) {
         transition={{ duration: 1 }}
         className="flex justify-center items-center"
       >
-        <Image
-          src={urlFor(about?.image).url()}
-          alt="Thinker"
-          width={1500}
-          height={1500}
-        />
+        {about ? (
+          <Image
+            src={urlFor(about?.image).url()}
+            alt="Thinker"
+            width={1500}
+            height={1500}
+          />
+        ) : null}
       </motion.div>
 
       <motion.div
