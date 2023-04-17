@@ -1,4 +1,3 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
 import { groq } from 'next-sanity'
 import { sanityClient } from '../../sanity'
 import { Project } from '@/typings'
@@ -10,19 +9,10 @@ const query = groq`
 }
 `
 
-type Data = {
-  projects?: Project[]
-  error?: string
+
+export const getProjects = async () => {
+  const data: Project[] = await sanityClient.fetch(query)
+
+  return data
 }
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>,
-) {
-  try {
-    const projects: Project[] = await sanityClient.fetch(query)
-    res.status(200).json({ projects })
-  } catch (error) {
-    res.status(500).json({ error: 'Internal server error' })
-  }
-}

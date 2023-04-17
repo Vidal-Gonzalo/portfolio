@@ -7,11 +7,11 @@ import AboutMe from './components/AboutMe'
 import ContactMe from './components/ContactMe'
 import Projects from './components/Projects'
 import { About, Contact, HeaderInfo, PageInfo, Project } from '@/typings'
-import { fetchPageInfo } from '@/utils/fetchPageInfo'
-import { fetchAbout } from '@/utils/fetchAbout'
-import { fetchProjects } from '@/utils/fetchProjects'
-import { fetchContact } from '@/utils/fetchContact'
-import { fetchHeader } from '@/utils/fetchHeader'
+import { getHeader } from './api/getHeader'
+import { getAbout } from './api/getAbout'
+import { getContact } from './api/getContact'
+import { getProjects } from './api/getProjects'
+import { getPageInfo } from './api/getPageInfo'
 
 const livvic = Livvic({
   subsets: ['latin'],
@@ -68,11 +68,11 @@ const Home = ({ header, pageInfo, about, contact, projects }: Props) => {
 export default Home
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const header: HeaderInfo = await fetchHeader()
-  const pageInfo: PageInfo = await fetchPageInfo()
-  const about: About = await fetchAbout()
-  const projects: Project[] = await fetchProjects()
-  const contact: Contact = await fetchContact()
+  const header: HeaderInfo = await getHeader()
+  const pageInfo: PageInfo = await getPageInfo()
+  const about: About = await getAbout()
+  const projects: Project[] = await getProjects()
+  const contact: Contact = await getContact()
   return {
     props: {
       header,

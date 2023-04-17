@@ -1,4 +1,3 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
 import { groq } from 'next-sanity'
 import { sanityClient } from '../../sanity'
 import { PageInfo } from '@/typings'
@@ -15,19 +14,8 @@ const query = groq`
 }
 `
 
-type Data = {
-  pageInfo?: PageInfo
-  error?: string
-}
+export const getPageInfo = async () => {
+  const data: PageInfo = await sanityClient.fetch(query)
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>,
-) {
-  try {
-    const pageInfo: PageInfo = await sanityClient.fetch(query)
-    res.status(200).json({ pageInfo })
-  } catch (error) {
-    res.status(500).json({ error: 'Internal server error' })
-  }
+  return data
 }

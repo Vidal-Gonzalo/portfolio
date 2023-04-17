@@ -7,19 +7,10 @@ const query = groq`
 *[_type == "social"]
 `
 
-type Data = {
-  socials?: Social[]
-  error?: string
+
+export const getSocials = async () => {
+  const data: Social[] = await sanityClient.fetch(query)
+
+  return data
 }
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>,
-) {
-  try {
-    const socials: Social[] = await sanityClient.fetch(query)
-    res.status(200).json({ socials })
-  } catch (error) {
-    res.status(500).json({ error: 'Internal server error' })
-  }
-}
