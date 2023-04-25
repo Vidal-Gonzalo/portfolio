@@ -63,6 +63,7 @@ export interface About extends SanityBody {
 
 export interface Project extends SanityBody {
     _type: "project";
+    id: number;
     title: string;
     description: string;
     image: Image;
