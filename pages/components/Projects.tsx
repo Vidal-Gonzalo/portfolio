@@ -12,7 +12,7 @@ type Props = {
 }
 
 function Projects({ projects }: Props) {
-  const [projectsToShow, setProjectsToShow] = useState<number>(4)
+  const [projectsToShow, setProjectsToShow] = useState<number>(3)
 
   return (
     <div className="w-screen flex flex-col justify-center items-center space-y-14 pb-[10%]">
@@ -41,8 +41,8 @@ function Projects({ projects }: Props) {
                     <Image
                       src={urlFor(project?.image).url()}
                       alt={'Project'}
-                      width={1000}
-                      height={1000}
+                      width={2500}
+                      height={2500}
                     />
                   </motion.div>
                 ) : null}

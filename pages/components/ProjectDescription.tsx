@@ -4,6 +4,7 @@ import TechsCarousel from './Carousels/TechsCarousel'
 import GlobeAltIcon from '@heroicons/react/20/solid/GlobeAltIcon'
 import CodeBracketIcon from '@heroicons/react/20/solid/CodeBracketIcon'
 import { Project } from '@/typings'
+import Link from 'next/link'
 
 type Props = {
   project: Project
@@ -21,12 +22,39 @@ function ProjectDescription({ project }: Props) {
         <TechsCarousel techs={project?.technologies} />
       ) : null}
       <div className="space-x-5 text-center flex justify-center">
-        <button className="w-24 h-10 2xl:w-32 border border-brown flex items-center justify-center text-brown">
-          <GlobeAltIcon className="h-6 w-6 mr-2" /> Live
-        </button>
-        <button className="w-24 h-10 2xl:w-32 border border-brown flex items-center justify-center text-brown">
-          <CodeBracketIcon className="h-6 w-6 mr-2" /> Code
-        </button>
+        {project.linkToSite ? (
+          <Link
+            href={project.linkToSite}
+            target="_blank"
+            className="w-24 h-10 2xl:w-32 border flex items-center justify-center text-brown border-brown"
+          >
+            <GlobeAltIcon className="h-6 w-6 mr-2" /> Live
+          </Link>
+        ) : (
+          <button
+            disabled
+            className="w-24 h-10 2xl:w-32 border flex items-center justify-center border-gray-400 text-gray-400"
+          >
+            <GlobeAltIcon className="h-6 w-6 mr-2" /> Live
+          </button>
+        )}
+
+        {project.linkToBuild ? (
+          <Link
+            href={project.linkToBuild}
+            className="w-24 h-10 2xl:w-32 border flex items-center justify-center text-brown border-brown"
+            target="_blank"
+          >
+            <CodeBracketIcon className="h-6 w-6 mr-2" /> Code
+          </Link>
+        ) : (
+          <button
+            disabled
+            className="w-24 h-10 2xl:w-32 border flex items-center justify-center border-gray-400 text-gray-400"
+          >
+            <CodeBracketIcon className="h-6 w-6 mr-2" /> Code
+          </button>
+        )}
       </div>
     </div>
   )
