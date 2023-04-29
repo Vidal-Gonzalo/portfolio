@@ -52,7 +52,7 @@ function Hero({ pageInfo }: Props) {
             <Icons socials={pageInfo?.socials} color={'#5D4739'} />
           </motion.div>
           <a
-            href="/CV-Gonzalo-Vidal.pdf"
+            href="/Currículum-Vitae-Gonzalo-Vidal.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="border-2 border-solid border-brown mt-5 p-3 w-[50%] md:w-[20%] "
