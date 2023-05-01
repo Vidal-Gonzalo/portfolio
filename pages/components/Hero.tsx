@@ -55,9 +55,9 @@ function Hero({ pageInfo }: Props) {
             href="/Currículum-Vitae-Gonzalo-Vidal.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="border-2 border-solid border-brown mt-5 p-3 w-[50%] md:w-[20%] "
+            className="border-2 border-solid border-brown mt-5 p-3 w-[50%] md:w-[30%] "
           >
-            Ver CV
+            Download CV
           </a>
         </div>
       </div>
