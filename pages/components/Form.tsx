@@ -57,14 +57,14 @@ function Form({ inputs }: Props) {
             input.label === 'E-mail'
               ? 'from_email'
               : input.label === 'Full name'
-              ? 'from_name'
-              : 'message'
+                ? 'from_name'
+                : 'message'
           const name =
             input.label === 'E-mail'
               ? 'from_email'
               : input.label === 'Full name'
-              ? 'from_name'
-              : 'message'
+                ? 'from_name'
+                : 'message'
 
           return (
             <div className="w-full mb-4" key={index}>
@@ -94,9 +94,8 @@ function Form({ inputs }: Props) {
       </div>
       <div className="w-full flex justify-end">
         <button
-          className={`w-full lg:w-[35%] justify-center border border-slate-100 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center ${
-            error && 'border-red-500'
-          } ${isLoading && 'border-yellow-500'} ${sent && 'border-green-500'}`}
+          className={`w-full lg:w-[35%] justify-center border border-slate-100 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center ${error && 'border-red-500'
+            } ${isLoading && 'border-yellow-500'} ${sent && 'border-green-500'}`}
           type="submit"
           disabled={isLoading || sent || error}
         >
@@ -107,7 +106,7 @@ function Form({ inputs }: Props) {
               transition={{ duration: 1 }}
               className="flex items-center"
             >
-              Enviar
+              Send
               <PaperAirplane className="ml-2 h-6 w-6" />
             </motion.span>
           )}
@@ -118,7 +117,7 @@ function Form({ inputs }: Props) {
               transition={{ duration: 1 }}
               className="flex items-center"
             >
-              Cargando
+              Loading
               <Clock className="ml-2 h-6 w-6" />
             </motion.span>
           )}
@@ -134,7 +133,7 @@ function Form({ inputs }: Props) {
               transition={{ duration: 1 }}
               className="flex items-center"
             >
-              Enviado <Check className="ml-2 h-6 w-6" />
+              Sent <Check className="ml-2 h-6 w-6" />
             </motion.span>
           )}
         </button>
